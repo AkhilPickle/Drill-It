@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://kdg6rgehduvc"]
+
+[ext_resource type="ArrayMesh" uid="uid://b0wpf2c6xnlpq" path="res://Drill It/drillgun.obj" id="1_yj1vg"]
+[ext_resource type="Texture2D" uid="uid://47jocn02m5km" path="res://Drill It/muzzleflash.png" id="2_7bvm6"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yj1vg"]
+orientation = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7bvm6"]
+transparency = 1
+albedo_color = Color(0.738667, 0.44, 1, 1)
+albedo_texture = ExtResource("2_7bvm6")
+emission_enabled = true
+emission = Color(0.0607321, 0.8554, 0.502967, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="Animation" id="Animation_7bvm6"]
+resource_name = "Shoot"
+length = 0.08
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Drillgun:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0002, 0.0003, 0.01, 0.04, 0.08),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-0.0872665, 0, 0), Vector3(0, 0, 0.0174533), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Drillgun:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.08),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.5), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Drillgun/Muzzle Flash:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.00172024, 0.00329713, 0.0407124, 0.0645091, 0.0738271, 0.08),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.38419e-07, 5.40636), Vector3(0, 0.0116824, 4.74049), Vector3(0, 0.012193, 4.9282), Vector3(0, 2.38419e-07, 5.08423), Vector3(0, 2.38419e-07, 4.78779), Vector3(0, 2.38419e-07, 4.66282), Vector3(0, 2.38419e-07, 5.40636)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Drillgun/Muzzle Flash:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.08),
+"transitions": PackedFloat32Array(1, 1, 10),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.5, 1.5, 1.5), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ml6l"]
+_data = {
+&"Shoot": SubResource("Animation_7bvm6")
+}
+
+[node name="Drillgun" type="Node3D"]
+metadata/_edit_lock_ = true
+
+[node name="Drillgun" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.16901, 0, 0, 0, 0.16901, 0, 0, 0, 0.16901, 0, 0, 0)
+mesh = ExtResource("1_yj1vg")
+
+[node name="Muzzle Flash" type="MeshInstance3D" parent="Drillgun"]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2.38419e-07, 5.40636)
+mesh = SubResource("PlaneMesh_yj1vg")
+surface_material_override/0 = SubResource("StandardMaterial3D_7bvm6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8ml6l")
+}
