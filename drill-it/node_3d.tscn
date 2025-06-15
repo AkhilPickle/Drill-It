@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://rb52ixor756w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a202f"]
+size = Vector3(11.9652, 1, 14.8794)
+
+[sub_resource type="BoxMesh" id="BoxMesh_noarx"]
+custom_aabb = AABB(0, 0, 0, 8, 10, 1)
+size = Vector3(12, 1, 15)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.324517)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0525513, 0, 0.25415)
+shape = SubResource("BoxShape3D_a202f")
+debug_color = Color(0.871889, 0.000473992, 0.845103, 0.42)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.251105)
+mesh = SubResource("BoxMesh_noarx")
+skeleton = NodePath("../..")
