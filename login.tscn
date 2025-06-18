@@ -1,0 +1,146 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4ub6a2vj0ojn"]
+
+[ext_resource type="Script" uid="uid://eiblf5wmb4tq" path="res://login.gd" id="1_cau7c"]
+[ext_resource type="Theme" uid="uid://dni1do3mxtlpj" path="res://loginpagebutton.tres" id="2_3n56f"]
+[ext_resource type="Script" uid="uid://jgvp8sodbaga" path="res://register.gd" id="3_xlo4h"]
+
+[node name="Login" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_cau7c")
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Login" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_3n56f")
+text = "Login
+"
+
+[node name="Sign Up" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_3n56f")
+text = "Sign Up"
+
+[node name="Reset Password" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_3n56f")
+text = "Reset Password
+"
+
+[node name="LoginContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -452.0
+offset_right = 452.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="LoginContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_3n56f")
+text = "error"
+
+[node name="LoginUser" type="LineEdit" parent="LoginContainer"]
+layout_mode = 2
+theme = ExtResource("2_3n56f")
+placeholder_text = "User Email"
+
+[node name="LoginPass" type="LineEdit" parent="LoginContainer"]
+layout_mode = 2
+theme = ExtResource("2_3n56f")
+placeholder_text = "Password"
+
+[node name="LoginSubmit" type="Button" parent="LoginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_3n56f")
+text = "Create Account"
+
+[node name="LoginBack" type="Button" parent="LoginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_3n56f")
+text = "Back"
+
+[node name="Register" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_xlo4h")
+
+[node name="CreateContainer" type="VBoxContainer" parent="Register"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Register/CreateContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="CreateUser" type="LineEdit" parent="Register/CreateContainer"]
+layout_mode = 2
+theme = ExtResource("2_3n56f")
+placeholder_text = "Username"
+
+[node name="CreatePass" type="LineEdit" parent="Register/CreateContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("2_3n56f")
+placeholder_text = "Password"
+
+[node name="CheckBox" type="CheckBox" parent="Register/CreateContainer"]
+layout_mode = 2
+text = "ENABLE VERIFICATION (REQUIRED IF 2FA"
+
+[node name="CreateUserEmail" type="LineEdit" parent="Register/CreateContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_3n56f")
+placeholder_text = "User Email"
+
+[node name="CreateSubmit" type="Button" parent="Register/CreateContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_3n56f")
+text = "Create Account"
+
+[node name="CreateBack" type="Button" parent="Register/CreateContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_3n56f")
+text = "Back"
+
+[connection signal="pressed" from="ButtonsContainer/Login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="ButtonsContainer/Sign Up" to="." method="_on_sign_up_pressed"]
+[connection signal="pressed" from="LoginContainer/LoginBack" to="." method="_on_login_back_pressed"]
+[connection signal="toggled" from="Register/CreateContainer/CheckBox" to="Register" method="_on_check_box_toggled"]
+[connection signal="pressed" from="Register/CreateContainer/CreateSubmit" to="Register" method="_on_create_submit_pressed"]
+[connection signal="pressed" from="Register/CreateContainer/CreateBack" to="." method="_on_create_back_pressed"]

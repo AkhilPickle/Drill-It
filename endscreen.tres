@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://w8l12xewrfuw"]
+
+[ext_resource type="FontFile" uid="uid://cm6508ga6rpbi" path="res://Drill It/Workbench-Regular-VariableFont_BLED,SCAN.ttf" id="1_paufk"]
+
+[resource]
+font = ExtResource("1_paufk")
+font_size = 70
+font_color = Color(0.827451, 0.580392, 0.301961, 1)
+outline_size = 30
+outline_color = Color(0.309804, 0.203922, 0.054902, 1)

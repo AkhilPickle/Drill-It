@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://lwgpkmmyma0r"]
+
+[ext_resource type="Script" uid="uid://d1wfke0xjbph" path="res://target.gd" id="1_e1yvt"]
+[ext_resource type="ArrayMesh" uid="uid://dl72upi7npnwa" path="res://target.obj" id="1_t2jmu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1yvt"]
+albedo_color = Color(0.557843, 0.0551078, 0.828237, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_t2jmu"]
+points = PackedVector3Array(0.0950641, 0.111099, 1.01587, -0.0950641, -0.015873, -1.01587, -0.253968, -0.015873, -0.984052, -0.0950641, 0.111099, -1.01587, 1.01587, -0.015873, -0.0950641, -0.952232, -0.015873, 0.412674, -1.01587, 0.111099, -0.0950641, 0.952232, 0.111099, -0.412674, 0.698264, -0.015873, 0.761905, 0.952232, 0.111099, 0.412674, -0.761905, -0.015873, -0.698264, -0.412674, -0.015873, 0.952232, -0.761905, 0.111099, 0.698264, 0.698264, -0.015873, -0.761905, -0.698264, 0.111099, -0.761905, 0.412674, 0.111099, -0.952232, -0.952232, -0.015873, -0.412674, 0.0950641, -0.015873, 1.01587, 0.412674, 0.111099, 0.952232, 0.952232, -0.015873, 0.412674, -0.412674, 0.111099, 0.952232, -0.952232, 0.111099, 0.412674, 0.412674, -0.015873, -0.952232, -1.01587, -0.015873, 0.0950641, 1.01587, 0.111099, 0.0950641, -0.952232, 0.111099, -0.412674, 0.952232, -0.015873, -0.412674, 0.761905, 0.111099, -0.698264, -0.698264, -0.015873, 0.761905, 0.761905, 0.111099, 0.698264, -0.412674, 0.111099, -0.952232, 0.412674, -0.015873, 0.952232)
+
+[node name="Node3D" type="CharacterBody3D"]
+script = ExtResource("1_e1yvt")
+
+[node name="Target" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0868682, 0, 0.0828025)
+mesh = ExtResource("1_t2jmu")
+surface_material_override/3 = SubResource("StandardMaterial3D_e1yvt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0868682, 0, 0.0828025)
+shape = SubResource("ConvexPolygonShape3D_t2jmu")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true

@@ -1,0 +1,265 @@
+[gd_scene load_steps=12 format=3 uid="uid://bqndnryurh0o8"]
+
+[ext_resource type="Script" uid="uid://dd51qoqmytxse" path="res://shovelhead.gd" id="1_ccwus"]
+[ext_resource type="ArrayMesh" uid="uid://bh7xlrypg6atk" path="res://Drill It/shovel.obj" id="1_v8qq2"]
+[ext_resource type="ArrayMesh" uid="uid://nojlqoit734a" path="res://Drill It/head.obj" id="2_ccwus"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xj858"]
+albedo_color = Color(1, 0.658824, 0, 1)
+metallic_specular = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v8qq2"]
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ccwus"]
+albedo_color = Color(0.61339, 0.61339, 0.61339, 1)
+metallic = 0.1
+
+[sub_resource type="Animation" id="Animation_ccwus"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Head:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Head:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Hit:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Area3D/Near Miss:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v8qq2"]
+resource_name = "Shot"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.09, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.16278, 0, 0), Vector3(0.837215, 11, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.09),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.16278, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Head:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.09, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.261799), Vector3(0, 0, 1.5708)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.09),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.261799)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Head:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Hit:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Area3D/Near Miss:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xj858"]
+_data = {
+&"RESET": SubResource("Animation_ccwus"),
+&"Shot": SubResource("Animation_v8qq2")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v8qq2"]
+radius = 3.2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ccwus"]
+radius = 4.5
+
+[node name="Shovelhead" type="Area3D" groups=["Enemy"]]
+transform = Transform3D(-0.131545, -1.93865e-05, -0.000116219, -1.92784e-05, 0.131545, -0.000125566, 0.000116237, -0.000125549, -0.131545, 0, 0, 0)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ccwus")
+
+[node name="Head" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_v8qq2")
+surface_material_override/0 = SubResource("StandardMaterial3D_xj858")
+surface_material_override/1 = SubResource("StandardMaterial3D_v8qq2")
+
+[node name="Shovel" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_ccwus")
+surface_material_override/1 = SubResource("StandardMaterial3D_ccwus")
+
+[node name="ShovelAnim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Shovel")
+libraries = {
+&"": SubResource("AnimationLibrary_xj858")
+}
+
+[node name="Hit" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 6.70752e-12, 1.16415e-10, -6.70752e-12, 1, -2.32831e-10, -1.16415e-10, 2.32831e-10, 1, -0.00553793, 8.82906, 0.000184762)
+shape = SubResource("SphereShape3D_v8qq2")
+debug_color = Color(0.847059, 0, 0.905882, 1)
+
+[node name="Area3D" type="Area3D" parent="." groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Near Miss" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-4.37114e-08, 1, -2.15704e-32, -1, -4.37114e-08, 9.25694e-19, 9.25694e-19, 4.04634e-26, 1, -0.001, 8.829, -9.31323e-10)
+shape = SubResource("CylinderShape3D_ccwus")
+debug_color = Color(5.58317e-06, 0.809802, 0.941832, 0.42)

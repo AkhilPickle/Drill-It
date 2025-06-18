@@ -1,0 +1,225 @@
+[gd_scene load_steps=13 format=3 uid="uid://db2hua7aosoyl"]
+
+[ext_resource type="PackedScene" uid="uid://djyl0xhyqsmik" path="res://menustage.tscn" id="1_mae5d"]
+[ext_resource type="Script" uid="uid://c3n02uym0rj4j" path="res://menu.gd" id="2_4hy44"]
+[ext_resource type="Theme" uid="uid://d06aumdi1gfci" path="res://Drill It/uitheme.tres" id="2_mae5d"]
+[ext_resource type="Texture2D" uid="uid://ck613ks6d5jg2" path="res://Drill It/drillit.png" id="2_ouk20"]
+[ext_resource type="Theme" uid="uid://dnxa30bbwm84s" path="res://uitheme2.tres" id="5_ytr4m"]
+[ext_resource type="Texture2D" uid="uid://cmdo7vthqxime" path="res://Drill It/Shovelhead.png" id="6_l48gv"]
+[ext_resource type="Script" uid="uid://cuw2yyk8s02lp" path="res://bttnmode_1.gd" id="7_iqepy"]
+[ext_resource type="Texture2D" uid="uid://cd5lqk13oiqw1" path="res://Drill It/Thumbnail3.png" id="8_kk3ma"]
+[ext_resource type="Script" uid="uid://l5k2t8x0g0wf" path="res://settings.gd" id="9_nrnbx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nrnbx"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_iqepy"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_h1wq0"]
+font_size = 32
+
+[node name="Menu" type="CanvasLayer"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MenuStage" parent="Node3D" instance=ExtResource("1_mae5d")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Node3D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Node3D/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Node3D/SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.873339, 0, -0.487113, 0, 1, 0, 0.487113, 0, -0.873339, -0.30356, 1.68104, -6.90109)
+
+[node name="Menu GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("2_4hy44")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu GUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu GUI/MarginContainer"]
+custom_minimum_size = Vector2(750, 700)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Start Game" type="Button" parent="Menu GUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_mae5d")
+text = "Start Game
+"
+
+[node name="Settings" type="Button" parent="Menu GUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_mae5d")
+text = "Settings
+"
+
+[node name="Leaderboard" type="Button" parent="Menu GUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_mae5d")
+text = "Leaderboard
+"
+
+[node name="Quit" type="Button" parent="Menu GUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_mae5d")
+text = "Quit Game
+"
+
+[node name="Drillit" type="Sprite2D" parent="Menu GUI"]
+position = Vector2(1456.97, 151.813)
+scale = Vector2(0.995079, 0.995079)
+texture = ExtResource("2_ouk20")
+
+[node name="Start" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(960, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1039.0
+offset_bottom = 1080.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Start"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Start/MarginContainer"]
+layout_mode = 2
+
+[node name="Mode1" type="Button" parent="Start/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_ytr4m")
+text = "Headshot
+"
+icon = ExtResource("6_l48gv")
+script = ExtResource("7_iqepy")
+
+[node name="Mode2" type="Button" parent="Start/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_ytr4m")
+text = "Tracing"
+icon = ExtResource("8_kk3ma")
+
+[node name="Settings" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_nrnbx")
+
+[node name="MarginContainer" type="MarginContainer" parent="Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1000.0
+offset_bottom = 1040.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "FOV: (Field of View)"
+label_settings = SubResource("LabelSettings_nrnbx")
+
+[node name="Number" type="Label" parent="Settings/MarginContainer/VBoxContainer/Label"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -22.5
+offset_bottom = 22.5
+grow_horizontal = 0
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_iqepy")
+
+[node name="HSlider" type="HSlider" parent="Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+min_value = 60.0
+max_value = 90.0
+value = 80.0
+
+[node name="Label2" type="Label" parent="Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mouse Sensitivity:"
+label_settings = SubResource("LabelSettings_h1wq0")
+
+[node name="Number" type="Label" parent="Settings/MarginContainer/VBoxContainer/Label2"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="HSlider2" type="HSlider" parent="Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 0.001
+max_value = 0.008
+step = 0.001
+value = 0.004
+
+[connection signal="button_up" from="Menu GUI/MarginContainer/VBoxContainer/Start Game" to="Menu GUI" method="_on_start_game_button_up"]
+[connection signal="button_up" from="Menu GUI/MarginContainer/VBoxContainer/Settings" to="Menu GUI" method="_on_settings_button_up"]
+[connection signal="pressed" from="Menu GUI/MarginContainer/VBoxContainer/Quit" to="Menu GUI" method="_on_quit_pressed"]
+[connection signal="pressed" from="Start/MarginContainer/VBoxContainer/Mode1" to="Start/MarginContainer/VBoxContainer/Mode1" method="_on_pressed"]
+[connection signal="value_changed" from="Settings/MarginContainer/VBoxContainer/HSlider" to="Settings" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Settings/MarginContainer/VBoxContainer/HSlider2" to="Settings" method="_on_h_slider_2_value_changed"]

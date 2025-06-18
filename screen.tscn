@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://8iodd8iokwac"]
+
+[ext_resource type="ArrayMesh" uid="uid://c2l77fft7ntay" path="res://Drill It/Screen.obj" id="1_vouji"]
+[ext_resource type="PackedScene" uid="uid://ciyivau538or" path="res://gui.tscn" id="2_7cosj"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7cosj"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61bok"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_7cosj")
+emission = Color(0.197937, 0.197937, 0.197937, 1)
+emission_energy_multiplier = 7.65
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ym1bn"]
+albedo_color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7cosj"]
+emission_enabled = true
+emission = Color(1, 0.48094, 0.0898079, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7cosj"]
+points = PackedVector3Array(-3.51878, -0.326325, -5.77119, 0.329072, 1.98161, 6.1569, 0.2, -0.995189, 5.79775, -4.0962, 0.250658, 5.77119, 0.329072, 1.98161, -6.1569, 0.2, -0.995189, -5.79775, -0.826195, 2.36706, -1.73088, -4.0962, 0.250658, -5.77119, -1.01852, -1.0962, 6.1569, -1.01852, 1.98161, 6.1569, -1.01852, -1.0962, -6.1569, -4.0962, -0.13411, 5.77119, -1.01852, 1.98161, -6.1569, -0.826195, 2.36706, 1.73088, -4.0962, -0.13411, -5.77119, -0.0699844, 2.1902, 1.5541, -3.51878, -0.326325, 5.77119, -0.0699844, 2.1902, -1.5541)
+
+[node name="Screen" type="Node3D"]
+
+[node name="Screen" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.790547, 0, 0.0107654)
+mesh = ExtResource("1_vouji")
+surface_material_override/1 = SubResource("StandardMaterial3D_61bok")
+surface_material_override/2 = SubResource("StandardMaterial3D_ym1bn")
+surface_material_override/3 = SubResource("StandardMaterial3D_7cosj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Screen"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Screen/StaticBody3D"]
+visible = false
+shape = SubResource("ConvexPolygonShape3D_7cosj")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Control" parent="SubViewport" instance=ExtResource("2_7cosj")]

@@ -1,0 +1,148 @@
+[gd_scene load_steps=9 format=3 uid="uid://uv2lrnin2urn"]
+
+[ext_resource type="Script" uid="uid://xpkrg0plvw3p" path="res://game_end.gd" id="1_c8kn0"]
+[ext_resource type="LabelSettings" uid="uid://w8l12xewrfuw" path="res://endscreen.tres" id="2_c8kn0"]
+[ext_resource type="Theme" uid="uid://d06aumdi1gfci" path="res://Drill It/uitheme.tres" id="2_tqwxg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqwxg"]
+bg_color = Color(0.29219, 0.29219, 0.29219, 0.705882)
+
+[sub_resource type="Theme" id="Theme_c8kn0"]
+Panel/styles/panel = SubResource("StyleBoxFlat_tqwxg")
+
+[sub_resource type="LabelSettings" id="LabelSettings_c8kn0"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_ly00t"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_xiimg"]
+font_size = 23
+outline_size = 10
+outline_color = Color(0, 0.435844, 0, 1)
+
+[node name="End" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_c8kn0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 70
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Control/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_c8kn0")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 175
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Game End"
+label_settings = ExtResource("2_c8kn0")
+horizontal_alignment = 1
+
+[node name="Retry" type="Button" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_tqwxg")
+text = "Retry
+"
+
+[node name="Leaderboard" type="Button" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_tqwxg")
+text = "Leaderboard
+"
+
+[node name="HomeScreen" type="Button" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_tqwxg")
+text = "Home Screen"
+
+[node name="Quit" type="Button" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_tqwxg")
+text = "Quit
+"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer/Panel/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer2/MarginContainer"]
+layout_mode = 2
+text = "Stats"
+label_settings = ExtResource("2_c8kn0")
+horizontal_alignment = 1
+
+[node name="Stat" type="Label" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Targets Destroyed: ___"
+label_settings = SubResource("LabelSettings_c8kn0")
+horizontal_alignment = 1
+
+[node name="NearStat" type="Label" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Near Misses: __"
+label_settings = SubResource("LabelSettings_ly00t")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer2"]
+visible = false
+custom_minimum_size = Vector2(681, 0)
+layout_mode = 2
+size_flags_vertical = 10
+text = "Tip: If you have a lot of near misses, consider changing your sensitivity to one that suits your playstyle"
+label_settings = SubResource("LabelSettings_xiimg")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="Control/MarginContainer/Panel/MarginContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/Panel/MarginContainer/VBoxContainer/HomeScreen" to="." method="_on_home_screen_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/Panel/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

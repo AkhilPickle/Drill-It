@@ -1,0 +1,177 @@
+[gd_scene load_steps=13 format=3 uid="uid://c62ix868ex3o7"]
+
+[ext_resource type="ArrayMesh" uid="uid://cc8yfoddfxp88" path="res://gun1.obj" id="1_7vd5q"]
+[ext_resource type="ArrayMesh" uid="uid://bfnph1bdyd70v" path="res://gun2.obj" id="2_pr6yj"]
+[ext_resource type="ArrayMesh" uid="uid://ckiwbq3khuukq" path="res://gun3.obj" id="3_k8v55"]
+[ext_resource type="ArrayMesh" uid="uid://csk83sstsyet1" path="res://gun4.obj" id="4_5k1dv"]
+[ext_resource type="ArrayMesh" uid="uid://cbegju6cqofjm" path="res://gun5.obj" id="5_1q2t8"]
+[ext_resource type="Texture2D" uid="uid://bcw2mhjha78xe" path="res://Drill It/muzzleflash.png" id="6_pr6yj"]
+
+[sub_resource type="Animation" id="Animation_pr6yj"]
+length = 0.15
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Gun3:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MeshInstance3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(5.06638, 0.0133266, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../MeshInstance3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.65158e-06, 0, 18.8919)]
+}
+
+[sub_resource type="Animation" id="Animation_7vd5q"]
+resource_name = "Shoot"
+length = 0.23
+step = 0.01
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, -2.45293e-07, 0, -2.80582, 0.23, 1, 0, 0, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Gun2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, -2.45293e-07, 0, -2.80582, 0.23, 1, 0, 0, 0)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Gun3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, -2.45293e-07, 0, -2.80582, 0.23, 1, 0, 0, 0)
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Gun4")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0.288621, 0.0333333, 1, -2.45293e-07, 0, -2.5172, 0.23, 1, 0, 0, 0.288621)
+tracks/4/type = "position_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Gun5")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, -2.45293e-07, 0, -2.80582, 0.23, 1, 0, 0, 0)
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Gun3:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.23),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.785398), Vector3(0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../MeshInstance3D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.23),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-3.82822e-07, 0, 5.3272), Vector3(6.86415e-07, 0, 7.82365), Vector3(0, 0, 18.892)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../MeshInstance3D:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.23),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(5.46186, 0.927534, 6.09135), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pr6yj"]
+_data = {
+&"RESET": SubResource("Animation_pr6yj"),
+&"Shoot": SubResource("Animation_7vd5q")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8v55"]
+transparency = 1
+albedo_color = Color(0.731799, 0.601313, 1.54018e-06, 1)
+albedo_texture = ExtResource("6_pr6yj")
+emission_enabled = true
+emission = Color(0.896022, 0.427078, 1, 1)
+emission_texture = ExtResource("6_pr6yj")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7vd5q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pr6yj"]
+
+[node name="Gun" type="Node3D"]
+transform = Transform3D(-0.0458368, 0, -4.00718e-09, 0, 0.0458368, 0, 4.00718e-09, 0, -0.0458368, 0, 0, 0)
+
+[node name="Gun1" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.25356, 0, 0, 0, 3.25356, 0, 0, 0, 3.25356, 0, 0, 0)
+mesh = ExtResource("1_7vd5q")
+
+[node name="Gun2" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.25356, 0, 0, 0, 3.25356, 0, 0, 0, 3.25356, 0, 0, 0)
+mesh = ExtResource("2_pr6yj")
+
+[node name="Gun3" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.25356, 0, 0, 0, 3.25356, 0, 0, 0, 3.25356, 0, 0, 0)
+mesh = ExtResource("3_k8v55")
+
+[node name="Gun4" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.25356, 0, 0, 0, 3.25356, 0, 0, 0, 3.25356, 0, 0, 0.288621)
+mesh = ExtResource("4_5k1dv")
+
+[node name="Gun5" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.25356, 0, 0, 0, 3.25356, 0, 0, 0, 3.25356, 0, 0, 0)
+mesh = ExtResource("5_1q2t8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Gun1")
+libraries = {
+&"": SubResource("AnimationLibrary_pr6yj")
+}
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.21459e-07, 0, 1, 0, 0.0133266, 0, -5.06638, 0, -4.37114e-08, -1.65158e-06, 0, 18.8919)
+material_override = SubResource("StandardMaterial3D_k8v55")
+mesh = SubResource("PlaneMesh_7vd5q")
+surface_material_override/0 = SubResource("StandardMaterial3D_pr6yj")
