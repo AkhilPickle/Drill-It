@@ -110,7 +110,6 @@ font_size = 200
 script = ExtResource("1_iotsf")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-unique_name_in_owner = true
 environment = SubResource("Environment_6iypd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -481,10 +480,9 @@ wait_time = 35.0
 one_shot = true
 
 [node name="Gap" type="Timer" parent="."]
-wait_time = 0.6
+wait_time = 0.7
 
 [node name="Delay" type="Timer" parent="."]
-wait_time = 2.0
 
 [connection signal="timeout" from="CharacterBody3D/Control/GameCountdown" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterBody3D/Control/GameCountdown" to="CharacterBody3D/Control" method="_on_timer_timeout"]

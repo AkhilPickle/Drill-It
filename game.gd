@@ -5,6 +5,8 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 @onready var timer = $GameDuration
 func _ready() -> void:
+	Global.score = 0
+	Global.miss = 0
 	timer.start()
 	get_tree().paused = false
 	pass
@@ -17,10 +19,8 @@ func countdown():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	Global.countdownremaining = "%01d" % countdown()
-	if int(Global.countdownremaining) == 0:	
+	if int(Global.countdownremaining) == 0:
 		pass
-
-
 
 func _on_timer_timeout():
 	$Gap.start()
@@ -29,20 +29,16 @@ func _on_timer_timeout():
 	add_child(shvlhead)
 	pass # Replace with function body.
 
-
 func _on_game_duration_timeout() -> void:
 	endstate = true
 	$Gap.stop()
 	$Delay.start()
-	pass # Replace with function body.
-	
-
-
+	pass # Replace with function body
 
 func _on_gap_timeout() -> void:
 	if endstate == false:
 		var shvlhead = shovelhead.instantiate()
-		shvlhead.position = Vector3(randf_range(12,15),0.7,randf_range(-5.2,5.2))
+		shvlhead.position = Vector3(randf_range(11,14),0.7,randf_range(-5.2,5.2))
 		add_child(shvlhead)
 		$Gap.start()
 	else:
@@ -53,5 +49,5 @@ func _on_gap_timeout() -> void:
 func _on_delay_timeout() -> void:
 	for Enemy in get_tree().get_nodes_in_group("Enemy"):
 		Enemy.queue_free()
-		get_node("End").gameover()
+	get_node("End").gameover()
 	pass # Replace with function body.

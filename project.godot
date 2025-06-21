@@ -19,10 +19,12 @@ config/icon="res://icon.svg"
 
 Global="*res://global.tscn"
 Talo="*res://addons/talo/talo_manager.gd"
+Leaderboards="*res://addons/quiver_leaderboards/leaderboards.tscn"
+PlayerAccounts="*res://addons/quiver_player_accounts/player_accounts.tscn"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/talo/plugin.cfg")
+enabled=PackedStringArray("res://addons/quiver_leaderboards/plugin.cfg", "res://addons/quiver_player_accounts/plugin.cfg", "res://addons/talo/plugin.cfg")
 
 [filesystem]
 

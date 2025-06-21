@@ -37,6 +37,13 @@ size_flags_vertical = 3
 theme = ExtResource("2_3n56f")
 text = "Sign Up"
 
+[node name="Reset Password" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_3n56f")
+text = "Reset Password
+"
+
 [node name="Register" type="Control" parent="."]
 visible = false
 layout_mode = 1
@@ -58,7 +65,6 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Register/CreateContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-theme = ExtResource("2_3n56f")
 
 [node name="CreateUser" type="LineEdit" parent="Register/CreateContainer"]
 layout_mode = 2
@@ -70,16 +76,6 @@ layout_mode = 2
 size_flags_vertical = 8
 theme = ExtResource("2_3n56f")
 placeholder_text = "Password"
-secret = true
-secret_character = "#"
-
-[node name="CreateConfirmPass" type="LineEdit" parent="Register/CreateContainer"]
-layout_mode = 2
-theme = ExtResource("2_3n56f")
-
-[node name="CreateEmail" type="LineEdit" parent="Register/CreateContainer"]
-visible = false
-layout_mode = 2
 
 [node name="CreateSubmit" type="Button" parent="Register/CreateContainer"]
 layout_mode = 2
@@ -120,6 +116,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("2_3n56f")
+text = "error"
 
 [node name="LoginUser" type="LineEdit" parent="Login/LoginContainer"]
 layout_mode = 2
