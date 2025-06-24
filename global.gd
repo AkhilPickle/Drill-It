@@ -7,3 +7,4 @@ var miss := 0
 var fov := 80
 var sens := 0.005
 var playername:String
+var finished = false

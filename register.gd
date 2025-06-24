@@ -4,8 +4,15 @@ extends Control
 @onready var enable_verification: CheckBox = $CreateContainer/CheckBox
 @onready var validation_label: Label = $CreateContainer/Label
 @onready var email: LineEdit = $CreateContainer/CreateEmail
+var textlengthuser
+var textlengthpass
+
 
 func _process(_delta: float) -> void:
+	textlengthuser = str(username.get_text()).length()
+	textlengthpass = str(password.get_text()).length()
+	print(textlengthuser)
+	print(textlengthpass)
 	if username.text.is_empty():
 		$CreateContainer/CreateSubmit.hide()
 	if password.text.is_empty():
@@ -15,6 +22,12 @@ func _process(_delta: float) -> void:
 			$CreateContainer/CreateSubmit.show()
 		else: 
 			$CreateContainer/CreateSubmit.hide()
+	if textlengthuser <= 5:
+		$CreateContainer/CreateSubmit.hide()
+	if textlengthpass <= 5:
+		$CreateContainer/CreateSubmit.hide()
+	else:
+		pass
 
 
 func _on_create_submit_pressed() -> void:

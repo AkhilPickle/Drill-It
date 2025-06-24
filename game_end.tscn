@@ -127,6 +127,7 @@ label_settings = SubResource("LabelSettings_ly00t")
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer2"]
+visible = false
 custom_minimum_size = Vector2(681, 0)
 layout_mode = 2
 size_flags_vertical = 10

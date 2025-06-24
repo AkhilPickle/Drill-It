@@ -5,7 +5,11 @@ var playername = Global.playername
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().paused = false
-	await Leaderboards.post_guest_score("drill_it-leaderboard2-65fB", score, playername)
+	if Global.finished == true:
+		await Leaderboards.post_guest_score("drill_it-leaderboard2-65fB", score, playername)
+		Global.finished = false
+	else:
+		pass
 	pass # Replace with function body.
 
 

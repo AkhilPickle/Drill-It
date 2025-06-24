@@ -17,6 +17,7 @@ func _on_start_game_button_up() -> void:
 
 func _on_settings_button_up() -> void:
 	$"../Settings".show()
+	$".".hide()
 	pass
 
 

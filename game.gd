@@ -50,4 +50,5 @@ func _on_delay_timeout() -> void:
 	for Enemy in get_tree().get_nodes_in_group("Enemy"):
 		Enemy.queue_free()
 	get_node("End").gameover()
+	Global.finished = true
 	pass # Replace with function body.

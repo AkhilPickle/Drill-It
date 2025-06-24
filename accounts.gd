@@ -21,11 +21,17 @@ func _on_login_back_pressed() -> void:
 
 func _on_sign_up_pressed() -> void:
 	$ButtonsContainer.hide()
-	$Register.show()
+	$EULA.show()
 	pass # Replace with function body.
 
 
 func _on_create_back_pressed() -> void:
 	$Register.hide()
 	$ButtonsContainer.show()
+	pass # Replace with function body.
+
+
+func _on_confirm_eula_pressed() -> void:
+	$EULA.hide()
+	$Register.show()
 	pass # Replace with function body.
